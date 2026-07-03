@@ -5,6 +5,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Certificates from './components/Certificates';
 import Projects from './components/Projects';
+import Hackathons from './components/Hackathons';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './styles/global.css';
@@ -16,8 +17,9 @@ function App() {
       <Hero />
       <About />
       <Skills />
-      <Certificates />
       <Projects />
+      <Certificates />
+      <Hackathons />
       <Contact />
       <Footer />
     </div>

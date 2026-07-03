@@ -1,89 +1,137 @@
-import React from 'react';
+import React, { memo } from 'react';
+import { motion } from 'framer-motion';
 import { userData } from '../data/user';
 
-const About = () => {
-    const styles = {
-        section: {
-            padding: '100px 0',
-        },
-        container: {
-            maxWidth: '1200px', // Increased width
-            margin: '0 auto',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '60px',
-            flexWrap: 'wrap', // Responsive
-        },
-        contentLeft: {
-            flex: 1,
-            minWidth: '300px',
-        },
-        contentRight: {
-            flex: 1,
-            minWidth: '300px',
-            display: 'flex',
-            gap: '20px',
-            justifyContent: 'center',
-        },
-        title: {
-            fontSize: '2.5rem',
-            marginBottom: '40px',
-        },
-        text: {
-            fontSize: '1.2rem',
-            color: 'var(--text-secondary)',
-            marginBottom: '30px',
-            lineHeight: '1.8',
-        },
-        highlight: {
-            color: 'var(--text-primary)',
-            fontWeight: '600',
-        },
-        statCard: {
-            background: 'var(--bg-card)',
-            padding: '30px',
-            borderRadius: '16px',
-            border: '1px solid var(--border-light)',
-            textAlign: 'center',
-            flex: 1,
-            minWidth: '150px',
-            transition: 'transform 0.3s ease',
-        },
-        statNumber: {
-            fontSize: '3rem',
-            fontWeight: '800',
-            marginBottom: '10px',
-        }
-    };
+const EDUCATION = [
+  {
+    degree: 'B.E. Computer Science Engineering',
+    institution: 'Adhi College of Engineering and Technology',
+    period: '2023 – 2027',
+    badge: 'Current • Final Year',
+    icon: '🎓',
+  },
+  {
+    degree: 'Higher Secondary (HSC)',
+    institution: 'Government Higher Secondary School, Kiliyur',
+    period: '2021 – 2023',
+    badge: '64%',
+    icon: '📚',
+  },
+  {
+    degree: 'Secondary School (SSLC)',
+    institution: 'Government Higher Secondary School, Kiliyur',
+    period: '2020 – 2021',
+    badge: '100%',
+    icon: '🏫',
+  },
+];
 
-    return (
-        <section id="about" style={styles.section}>
-            <div className="container" style={styles.container}>
-                <div style={styles.contentLeft}>
-                    <h2 style={styles.title} className="text-gradient">About Me</h2>
-                    <p style={styles.text}>
-                        I'm not just writing code; I'm <span style={styles.highlight}>Vibe Coding</span>.
-                        My journey started with a deep dive into <span style={styles.highlight}>Java and C</span>, mastering the fundamentals before conquering Object-Oriented Programming.
-                    </p>
-                    <p style={styles.text}>
-                        With strong expertise in arrays and advanced algorithms, I've tackled <span style={styles.highlight}>50+ LeetCode</span> and <span style={styles.highlight}>200+ CodeChef</span> problems.
-                        On the web, I craft responsive interfaces using <span style={styles.highlight}>React and Modern CSS</span>, bringing backend logic to life with seamless frontend experiences.
-                    </p>
-                </div>
+const STATS = [
+  { number: '10+', label: 'Certificates' },
+  { number: '3+', label: 'Projects Built' },
+  { number: '3+', label: 'Hackathons' },
+  { number: '2027', label: 'Grad Year' },
+];
 
-                <div style={styles.contentRight}>
-                    <div style={styles.statCard}>
-                        <div style={{ ...styles.statNumber, color: 'var(--accent-secondary)' }}>{userData.stats.leetcode}</div>
-                        <div style={{ fontSize: '1.1rem' }}>LeetCode</div>
-                    </div>
-                    <div style={styles.statCard}>
-                        <div style={{ ...styles.statNumber, color: 'var(--accent-primary)' }}>{userData.stats.codechef}</div>
-                        <div style={{ fontSize: '1.1rem' }}>CodeChef</div>
-                    </div>
-                </div>
+const About = memo(() => (
+  <section id="about" className="section">
+    <div className="container">
+      <motion.p
+        className="eyebrow"
+        initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        Who I am
+      </motion.p>
+      <motion.h2
+        className="section-title text-gradient"
+        initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+        transition={{ duration: 0.55, delay: 0.08 }}
+      >
+        About Me
+      </motion.h2>
+
+      <div className="about-grid-v2">
+        {/* Bio */}
+        <motion.div
+          className="about-card-v2"
+          initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.6 }}
+        >
+          <p className="section-text" style={{ marginBottom: '16px' }}>
+            I am a <strong className="highlight">Computer Science Engineering student</strong> passionate about building
+            modern, reliable, and user-friendly digital products.
+          </p>
+          <p className="section-text">
+            My focus lies in <strong className="highlight">Full-Stack Development</strong>, where I enjoy turning ideas into
+            polished web experiences with clean architecture and thoughtful design. I thrive on solving complex
+            problems and continuously improving my craft.
+          </p>
+
+          {/* Stats row */}
+          <div className="about-stats-row">
+            {STATS.map((s, i) => (
+              <motion.div
+                key={s.label}
+                className="about-stat"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 + i * 0.07 }}
+              >
+                <span className="about-stat-number">{s.number}</span>
+                <span className="about-stat-label">{s.label}</span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Education */}
+        <motion.div
+          className="education-card-v2"
+          initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <div className="education-header">
+            <div className="education-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="22" height="22">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3.5 2 8.5 2 12 0v-5" />
+              </svg>
             </div>
-        </section>
-    );
-};
+            <div>
+              <p className="eyebrow">Education</p>
+              <h3 className="education-section-title">Academic Background</h3>
+            </div>
+          </div>
+
+          <div className="education-timeline">
+            {EDUCATION.map((edu, i) => (
+              <motion.div
+                key={i}
+                className="edu-item"
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 + i * 0.1 }}
+              >
+                <div className="edu-item-top">
+                  <span className="edu-icon" aria-hidden="true">{edu.icon}</span>
+                  <div className="edu-item-body">
+                    <div className="edu-item-heading">
+                      <p className="edu-degree">{edu.degree}</p>
+                      <span className="edu-badge">{edu.badge}</span>
+                    </div>
+                    <p className="edu-institution">{edu.institution}</p>
+                    <p className="edu-period">{edu.period}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  </section>
+));
 
 export default About;
