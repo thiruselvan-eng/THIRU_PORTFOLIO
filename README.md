@@ -144,3 +144,4 @@ B.E. Computer Science Engineering — Adhi College of Engineering and Technology
 ## 📄 License
 
 This project is personal and not open for redistribution. All content, designs, and assets belong to **Thiruselvan M**.
+"# THIRU_PORTFOLIO" 
