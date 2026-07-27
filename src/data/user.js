@@ -95,16 +95,7 @@ export const userData = {
     linkedin: 'https://www.linkedin.com/in/thiruselvan-m-9a2253393',
     github: 'https://github.com/thiruselvan-eng',
     email: 'mailto:contact@thiruselvan.com',
-    resume: '/THIRUSELVAN_RESUME.pdf',
+    resume: '/RESUME_THIRU.pdf',
   },
-  certificates: [
-    { title: 'Artificial Intelligence', date: '2025', file: '/CERTIFICATES/ARTIFICIAL INTELIGENTS.pdf' },
-    { title: 'Cyber Security', date: '2025', file: '/CERTIFICATES/CYBER SECURITY  -UNDER ATTAK  SOCIAL MEDIA.pdf' },
-    { title: 'Excel Bootcamp', date: '2025', file: '/CERTIFICATES/EXCEL BOOTCAM.pdf' },
-    { title: 'HTML & CSS Bootcamp', date: '2025', file: '/CERTIFICATES/HTML & CSS BOOT CXAMP.pdf' },
-    { title: 'Industrial Visit Certificate', date: '2025', file: '/CERTIFICATES/IVCertificate of - THIRUSELVAN M.pdf' },
-    { title: 'Oracle Cloud Infrastructure AI', date: '2025', file: '/CERTIFICATES/OCI - AI [THIRU].pdf' },
-    { title: 'Oracle Cloud Infrastructure', date: '2025', file: '/CERTIFICATES/OCI [THIRU].pdf' },
-    { title: 'Python Bootcamp', date: '2025', file: '/CERTIFICATES/PYTHON BOOTCAMP.pdf' },
-  ],
+
 };
